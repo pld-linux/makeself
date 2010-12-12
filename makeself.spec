@@ -39,12 +39,14 @@ install -p makeself.sh $RPM_BUILD_ROOT%{_bindir}
 install -p makeself-header.sh $RPM_BUILD_ROOT%{_datadir}/misc
 install -p makeself.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
+ln -s makeself.sh $RPM_BUILD_ROOT%{_bindir}/makeself
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc README TODO
-%attr(755,root,root) %{_bindir}/makeself.sh
+%attr(755,root,root) %{_bindir}/makeself*
 %{_datadir}/misc/makeself-header.sh
 %{_mandir}/man1/makeself.1*
