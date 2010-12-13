@@ -23,10 +23,9 @@ also include checksums for integrity self-validation (CRC and/or MD5
 checksums).
 			
 %prep
-cd %{_builddir}
-rm -rf %{name}-%{version}
+%setup -qcT
+cd ..
 /bin/sh %{SOURCE0} --noexec
-%setup -qDT -n %{name}-%{version}
 
 %build
 %{__sed} -i -e 's|^HEADER=.*|HEADER=%{_datadir}/misc/makeself-header.sh|' makeself.sh
